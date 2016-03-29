@@ -1,5 +1,17 @@
 body {
-    background-color: #ff6600;
+    /*background-color: #ff6600;*/ 
+    background-color: #ff8432;
     color: #351500;
-    text-shadow: #555555 0.05rem 0.05rem;
+}
+
+.panel {
+    background-color: #ffeecc;
+    padding: 20px 20px 1px 20px;
+    border-radius: 2px;
+    box-shadow: 2px 2px #884216, 4px 4px #cc6220;
+}
+
+p {
+    font-size: 2rem;
+    line-height: 3rem;
 }
