@@ -33,8 +33,9 @@ namespace Tabeyo
             // Add framework services.
             services.AddMvc();
 
-            //services.AddScoped<CloudStorageAccount>(sp => CloudStorageAccount.Parse(Configuration.Get("AzureWebStorage")));
-            //services.AddScoped<CloudTableClient>(sp => sp.GetRequiredService<CloudStorageAccount>().CreateCloudTableClient());
+            var connectionString = Configuration["AzureStorageConnectionString"];
+            services.AddScoped<CloudStorageAccount>(sp => CloudStorageAccount.Parse(connectionString));
+            services.AddScoped<CloudTableClient>(sp => sp.GetRequiredService<CloudStorageAccount>().CreateCloudTableClient());
 
             services.AddScoped<LeadService>();
         }

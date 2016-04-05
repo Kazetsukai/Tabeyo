@@ -1,19 +1,24 @@
 
 using Microsoft.AspNet.Mvc;
+using Tabeyo.Models;
 using Tabeyo.Services;
 
 namespace Tabeyo.Controllers
 {
     public class LeadController : Controller
     {
+        LeadService _leadService;
+
         public LeadController(LeadService leadService)
         {
-            var _leadService = leadService;
+            _leadService = leadService;
         }
 
-        public IActionResult Subscribe()
+        public IActionResult Subscribe([FromBody] Lead lead)
         {
-            return new JsonResult(new { Success = true });
+            _leadService.Add(lead);
+            
+            return new JsonResult(new { success = true });
         }
     }
 }

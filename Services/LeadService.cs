@@ -18,6 +18,7 @@ namespace Tabeyo.Services
         {
             _tableClient = cloudTableClient;
             _table = _tableClient.GetTableReference(TABLE_NAME);
+            _table.CreateIfNotExists();
         }
 
         public List<Lead> GetLeads()
@@ -25,9 +26,9 @@ namespace Tabeyo.Services
             return _table.ExecuteQuery<Lead>(new TableQuery<Lead>()).ToList();
         }
 
-        public void AddLead(Lead lead)
+        public void Add(Lead lead)
         {
-
+            _table.Execute(TableOperation.InsertOrReplace(lead));
         }
     }
 }

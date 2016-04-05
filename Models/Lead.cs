@@ -5,18 +5,23 @@ namespace Tabeyo.Models
 {
     public class Lead : TableEntity
     {
-        public Lead(string source)
+        public Lead(string source, string email)
         {
             PartitionKey = source;
-            RowKey = Guid.NewGuid().ToString();
+            RowKey = email;
         }
 
         public Lead() { }
 
-        public string Email { get; set; }
+        public string Email 
+        {
+            get { return RowKey; }
+            set { RowKey = value; }
+        }
         public string Source
         {
             get { return PartitionKey; }
+            set { PartitionKey = value; }
         }
     }
 }

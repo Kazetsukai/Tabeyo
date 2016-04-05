@@ -6,12 +6,42 @@ body {
 
 .panel {
     background-color: #ffeecc;
-    padding: 20px 20px 1px 20px;
+    padding: 10px 10px 1px 10px;
     border-radius: 2px;
     box-shadow: 2px 2px #884216, 4px 4px #cc6220;
+}
+
+.panel > * {
+    margin: 10px;
+}
+
+@media (min-width: 375px) and (max-width: 549px) {   
+    .panel > * {
+        margin: 40px;
+    }
+}
+
+@media (min-width: 960px) {   
+    .panel > * {
+        margin: 40px;
+    }
 }
 
 p {
     font-size: 2rem;
     line-height: 3rem;
+}
+
+.mogu-splash {
+    margin-top: 25%;
+    width: 100%;
+}
+
+.splash {
+    margin-top: 25%;
+}
+
+.splash-form > * {
+    width: 100%;
+    padding: 0px;
 }
