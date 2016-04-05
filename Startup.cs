@@ -7,8 +7,12 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Tabeyo.Services;
 
-namespace Tabeyou
+namespace Tabeyo
 {
     public class Startup
     {
@@ -28,6 +32,11 @@ namespace Tabeyou
         {
             // Add framework services.
             services.AddMvc();
+
+            //services.AddScoped<CloudStorageAccount>(sp => CloudStorageAccount.Parse(Configuration.Get("AzureWebStorage")));
+            //services.AddScoped<CloudTableClient>(sp => sp.GetRequiredService<CloudStorageAccount>().CreateCloudTableClient());
+
+            services.AddScoped<LeadService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
