@@ -15,7 +15,7 @@ body {
     margin: 10px;
 }
 
-@media (min-width: 375px) and (max-width: 549px) {   
+@media (min-width: 375px) and (max-width: 549px) {
     .panel > * {
         margin: 40px;
     }
@@ -32,6 +32,7 @@ p {
     line-height: 3rem;
 }
 
+/* ----- SPLASH SCREEN ----- */
 .mogu-splash {
     margin-top: 25%;
     width: 100%;
@@ -44,4 +45,28 @@ p {
 .splash-form > * {
     width: 100%;
     padding: 0px;
+    
+    transition: background-color 200ms linear;
 }
+
+.splash-form input:disabled {
+    background-color: #ccc;
+}
+
+.splash-form button {
+    background-color: #8ea604;
+    color: #FFFFFF;
+}
+.splash-form button:disabled {
+    background-color: #777;
+    color: #FFFFFF;
+}
+
+.submit-response {
+    display: none;
+}
+
+.response-visible .submit-response {
+    display: initial;
+}
+/* ------------------------- */
