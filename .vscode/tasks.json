@@ -4,10 +4,9 @@
     "isShellCommand": true,
     "tasks": [
         {
-            "taskName": "watch",
+            "taskName": "min",
             "isBuildCommand": true,
-            "showOutput": "always",
-            "isWatching": true
+            "showOutput": "always"
         }
     ]
 }

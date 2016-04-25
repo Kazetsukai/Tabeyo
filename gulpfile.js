@@ -1,4 +1,5 @@
 /// <binding Clean='clean' />
+/// <binding BeforeBuild='min, clean' Clean='clean' />
 "use strict";
 
 var gulp = require("gulp"),
@@ -6,7 +7,8 @@ var gulp = require("gulp"),
   concat = require("gulp-concat"),
   cssmin = require("gulp-cssmin"),
   uglify = require("gulp-uglify"),
-  shell  = require("gulp-shell");
+  shell  = require("gulp-shell"),
+  babel = require("gulp-babel");
 
 var webroot = "./wwwroot/";
 
@@ -33,6 +35,7 @@ gulp.task("min:js", function () {
   return gulp.src([paths.js, "!" + paths.minJs], {
     base: "."
   })
+    .pipe(babel())
     .pipe(concat(paths.concatJsDest))
     .pipe(uglify())
     .pipe(gulp.dest("."));
@@ -47,4 +50,8 @@ gulp.task("min:css", function () {
 
 gulp.task("min", ["min:js", "min:css"]);
 
-gulp.task('watch', shell.task(['dnx-watch web']));
+gulp.task('watch-dnx', shell.task(['dnx-watch web']));
+gulp.task('watch-min', function() {
+  gulp.watch(paths.js, ['min:js']);
+  gulp.watch(paths.css, ['min:css']);
+});
