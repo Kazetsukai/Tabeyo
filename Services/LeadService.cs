@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Table;
 using Tabeyo.Models;
 
@@ -21,14 +19,14 @@ namespace Tabeyo.Services
             _table.CreateIfNotExists();
         }
 
-        public List<Lead> GetLeads()
+        public List<LeadModel> GetLeads()
         {
-            return _table.ExecuteQuery<Lead>(new TableQuery<Lead>()).ToList();
+            return _table.ExecuteQuery<LeadModel>(new TableQuery<LeadModel>()).ToList();
         }
 
-        public void Add(Lead lead)
+        public void Add(LeadModel lead)
         {
-            _table.Execute(TableOperation.InsertOrReplace(lead));
+            _table.Execute(TableOperation.Insert(lead));
         }
     }
 }

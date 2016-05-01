@@ -38,6 +38,7 @@ namespace Tabeyo
             services.AddScoped<CloudTableClient>(sp => sp.GetRequiredService<CloudStorageAccount>().CreateCloudTableClient());
 
             services.AddScoped<LeadService>();
+            services.AddScoped<ProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
