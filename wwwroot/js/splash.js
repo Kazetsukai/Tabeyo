@@ -58,7 +58,10 @@ ready(function() {
                     document.querySelector(".splash-form").classList.add("response-visible");
                     document.querySelector(".submit-response").textContent = "Thanks, we'll send you an email when we open!";
                     
-                    document.querySelector(".splash-form button").remove();
+                    var button = document.querySelector(".splash-form button");
+                    if (button !== undefined)
+                        button.remove();
+                        
                     document.querySelector("#intro-text").remove();
                 } else {
                     error();
