@@ -1,0 +1,9 @@
+$primaryColour: #ff8432;
+$darkColour: #351500;
+$lightColour: #ffeecc;
+
+
+
+@mixin shadow($colour) {
+    box-shadow: 0px 0px 10px 2px darken($colour, 20%);
+}
