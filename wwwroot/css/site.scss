@@ -1,0 +1,35 @@
+@import '_constants';
+
+body {
+    background-color: $primaryColour;
+    color: $darkColour;
+}
+
+.panel {
+    background-color: $lightColour;
+    padding: 10px 10px 1px 10px;
+    border-radius: 2px;
+    
+    @include shadow($primaryColour); 
+}
+
+.panel > * {
+    margin: 10px;
+}
+
+@media (min-width: 375px) and (max-width: 549px) {
+    .panel > * {
+        margin: 40px;
+    }
+}
+
+@media (min-width: 960px) {   
+    .panel > * {
+        margin: 40px;
+    }
+}
+
+p {
+    font-size: 2rem;
+    line-height: 3rem;
+}

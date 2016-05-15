@@ -15,6 +15,7 @@ var buffer = require('vinyl-buffer');
 var globby = require('globby');
 var through = require('through2');
 var gutil = require('gulp-util');
+var gsass = require('gulp-sass');
 
 var babelify = require('babelify');
 
@@ -23,7 +24,7 @@ var webroot = "./wwwroot/";
 var paths = {
   js: webroot + "js/bundle/**/*.js",
   minJs: webroot + "js/**/*.min.js",
-  css: webroot + "css/**/*.css",
+  scss: webroot + "css/**/*.scss",
   minCss: webroot + "css/**/*.min.css",
   concatJsDest: webroot + "js/site.min.js",
   concatCssDest: webroot + "css/site.min.css"
@@ -66,7 +67,8 @@ gulp.task("min:js", function () {
 });
 
 gulp.task("min:css", function () {
-  return gulp.src([paths.css, "!" + paths.minCss])
+  return gulp.src([paths.scss, "!" + paths.minCss])
+    .pipe(gsass())
     .pipe(concat(paths.concatCssDest))
     .pipe(cssmin())
     .pipe(gulp.dest("."));
@@ -77,5 +79,5 @@ gulp.task("min", ["min:js", "min:css"]);
 gulp.task('watch-dnx', shell.task(['dnx-watch web']));
 gulp.task('watch-min', function() {
   gulp.watch("js/bundle/**/*.js", {cwd: webroot }, ['min:js']);
-  gulp.watch(paths.css, ['min:css']);
+  gulp.watch(paths.scss, ['min:css']);
 });

@@ -1,0 +1,41 @@
+@import '_constants';
+
+/* ----- SPLASH SCREEN ----- */
+.mogu-splash {
+    margin-top: 25%;
+    width: 100%;
+}
+
+.splash {
+    margin-top: 25%;
+
+    &-form  {
+        > * {
+            width: 100%;
+            padding: 0px;
+            transition: background-color 200ms linear;
+        }
+        
+        input:disabled {
+            background-color: #ccc;
+        }
+
+        button {
+            background-color: #8ea604;
+            color: #FFFFFF;
+        }
+        button:disabled {
+            background-color: #777;
+            color: #FFFFFF;
+        }
+    }
+}
+
+.submit-response {
+    display: none;
+}
+
+.response-visible .submit-response {
+    display: initial;
+}
+/* ------------------------- */
