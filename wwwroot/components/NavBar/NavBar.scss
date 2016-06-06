@@ -1,0 +1,46 @@
+@import '../../css/_constants';
+
+.nav-bar {
+    float: left;
+    margin-left: 140px;
+    bottom: 0;
+    position: absolute;
+}
+
+.nav-bar__link {
+    display: inline-block;
+    
+    position: relative;
+    
+    background-color: darken($lightColour, 5%);
+    border: 1px solid darken($lightColour, 7%);
+    border-bottom: none;
+    
+    padding: 10px;
+    margin-left: 2px;
+    
+    line-height: 0.8em;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: lighten($darkColour, 10%);
+    
+    z-index: 0;
+    transition: 0.15s transform ease;
+}
+
+.nav-bar__link:hover {
+    
+    background-color: darken($lightColour, 15%);
+    border: 1px solid darken($lightColour, 17%);
+    border-bottom: none;
+    
+    z-index: 1;
+    
+    transform: scale(1.2);
+    
+    color: lighten($darkColour, 30%);
+}

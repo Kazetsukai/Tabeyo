@@ -1,0 +1,23 @@
+@import '../../css/_constants';
+
+.main-header {
+    width: 100%;
+    height: 90px;
+    position: relative;
+    background: $lightColour;
+    
+    @include shadow($primaryColour);
+}
+
+.main-header__logo {
+    width: 128px;
+    height: 128px;
+    
+    position: absolute;
+    left: 0;
+}
+
+
+.main-header > .container {
+    height: 100%;
+}

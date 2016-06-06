@@ -24,6 +24,7 @@
     "vinyl-transform": "^1.0.0"
   },
   "dependencies": {
+    "babel-plugin-resolver": "0.0.7",
     "material-ui": "^0.14.4",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
