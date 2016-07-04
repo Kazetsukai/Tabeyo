@@ -47,7 +47,7 @@
       "**.vspscc"
     ],
     "mappings": {
-      "": "./wwwroot"
+      ".": "./wwwroot"
     }
   },
   "scripts": {
