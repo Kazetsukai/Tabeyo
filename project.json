@@ -1,6 +1,6 @@
 {
   "version": "1.0.0-*",
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true
   },
   "tooling": {
@@ -32,13 +32,19 @@
     "node_modules",
     "bower_components"
   ],
-  "publishExclude": [
-    "node_modules",
-    "bower_components",
-    "**.xproj",
-    "**.user",
-    "**.vspscc"
-  ],
+  "publishOptions": {
+    "include": [
+      "wwwroot",
+      "Views"
+    ],
+    "exclude": [
+      "node_modules",
+      "bower_components",
+      "**.xproj",
+      "**.user",
+      "**.vspscc"
+    ]
+  },
   "scripts": {
     "prepublish": [
       "npm install",
