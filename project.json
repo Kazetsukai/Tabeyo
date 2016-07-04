@@ -27,11 +27,13 @@
   "frameworks": {
     "dnx451": {}
   },
-  "exclude": [
-    "wwwroot",
-    "node_modules",
-    "bower_components"
-  ],
+  "compile": {
+    "exclude": [
+      "wwwroot",
+      "node_modules",
+      "bower_components"
+    ]
+  },
   "publishOptions": {
     "include": [
       "wwwroot",
@@ -43,7 +45,10 @@
       "**.xproj",
       "**.user",
       "**.vspscc"
-    ]
+    ],
+    "mappings": {
+      "": "./wwwroot"
+    }
   },
   "scripts": {
     "prepublish": [
