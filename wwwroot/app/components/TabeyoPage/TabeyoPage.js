@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import ProductList from "../../components/ProductList/ProductList";
+import ProductListContainer from "../../containers/ProductListContainer";
 import MainHeader from "../../components/MainHeader/MainHeader";
 
 export default class NavBar extends React.Component {
@@ -13,13 +13,10 @@ export default class NavBar extends React.Component {
     
     return (
       <div>
-      
         <MainHeader />
-        
         <div className="container">
-            <ProductList />
+            <ProductListContainer />
         </div>
-        
       </div>
     );
   }

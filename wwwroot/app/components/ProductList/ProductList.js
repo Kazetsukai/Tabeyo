@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import ProductBox from "../../components/ProductBox/ProductBox";
+import ProductBox from "../ProductBox/ProductBox";
+import Hako from "../Hako/Hako"
 
 export default class ProductList extends React.Component {
   
@@ -17,7 +18,7 @@ export default class ProductList extends React.Component {
     }
     
     return (
-      <div className="products-list">
+      <div className="products-list clearfix">
         {products}
       </div>
     );

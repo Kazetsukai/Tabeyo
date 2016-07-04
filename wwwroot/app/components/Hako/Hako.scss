@@ -1,0 +1,10 @@
+@import '../../../css/_constants';
+
+.hako {
+    background: $lightColour;
+
+    padding: 10px;
+    margin: 10px;
+
+    border: 1px solid $borderColour;
+}

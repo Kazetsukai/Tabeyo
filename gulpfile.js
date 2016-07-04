@@ -23,10 +23,10 @@ var webroot = "./wwwroot/";
 
 var paths = {
   js: webroot + "js/bundle/**/*.js",
-  componentsJs: webroot + "components/**/*.js",
+  appJs: webroot + "app/**/*.js",
   minJs: webroot + "js/**/*.min.js",
   scss: webroot + "css/**/*.scss",
-  componentsScss: webroot + "components/**/*.scss",
+  appScss: webroot + "app/**/*.scss",
   minCss: webroot + "css/**/*.min.css",
   concatJsDest: webroot + "js/site.min.js",
   concatCssDest: webroot + "css/site.min.css"
@@ -53,7 +53,7 @@ gulp.task("min:js", function () {
     .on('error', gutil.log)
     .pipe(gulp.dest("."));
   
-  globby([paths.componentsJs, paths.js]).then(function(entries){
+  globby([paths.appJs, paths.js]).then(function(entries){
     var b = browserify({
       entries: entries,
       transform: [babelify]
@@ -69,7 +69,7 @@ gulp.task("min:js", function () {
 });
 
 gulp.task("min:css", function () {
-  return gulp.src([paths.scss, paths.componentsScss, "!" + paths.minCss])
+  return gulp.src([paths.scss, paths.appScss, "!" + paths.minCss])
     .pipe(gsass())
     .pipe(concat(paths.concatCssDest))
     .pipe(cssmin())
@@ -81,7 +81,7 @@ gulp.task("min", ["min:js", "min:css"]);
 gulp.task('watch-dnx', shell.task(['dnx-watch web']));
 gulp.task('watch-min', function() {
   gulp.watch(paths.js, {cwd: webroot }, ['min:js']);
-  gulp.watch(paths.componentsJs, {cwd: webroot }, ['min:js']);
-  gulp.watch(paths.componentsScss, ['min:css']);
+  gulp.watch(paths.appJs, {cwd: webroot }, ['min:js']);
+  gulp.watch(paths.appScss, ['min:css']);
   gulp.watch(paths.scss, ['min:css']);
 });
