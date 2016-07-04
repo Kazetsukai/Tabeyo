@@ -1,0 +1,32 @@
+@import '../../../css/_constants';
+
+.product-box {
+    float: left;
+    margin: 19px;
+    background-color: $lightColour;
+    border-radius: 3px;
+
+    @include shadowSmall(grey); 
+}
+
+.product-box__image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-box__name {
+    display: inline-block;
+
+    margin: 3px;
+    padding: 3px;
+}
+
+.product-box__buy-button {
+    float: right;
+    
+    margin: 3px;
+    padding: 3px;
+
+    border: 1px solid darken($lightColour, 10%);
+    border-radius: 3px;
+}

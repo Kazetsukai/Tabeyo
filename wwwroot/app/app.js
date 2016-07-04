@@ -65,16 +65,33 @@ function get(url, data, success, error) {
 // --------------------------------------------------------------
 
 import { createStore } from 'redux';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
+import { browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { routerReducer as routing } from 'react-router-redux';
+import { combineReducers } from 'redux';
 
-import ProductBox from "../../components/ProductBox/ProductBox";
-import TabeyoPage from "../../components/TabeyoPage/TabeyoPage";
+import { RETRIEVE_PRODUCTS } from './actions';
+import { products } from './reducers/ProductsReducer';
+import Root from "./components/Root/Root";
+
+const store = createStore(combineReducers({
+    routing,
+    products
+}));
+
+const history = syncHistoryWithStore(browserHistory, store);
 
 
-get("/Product", null, data => {  
-  ReactDOM.render(  
-    <TabeyoPage />,
+render(  
+    <Root store={store} history={history} />,
     document.getElementById('content')
   );
+  
+get("/Product", null, data => {
+  store.dispatch({
+      type: RETRIEVE_PRODUCTS,
+      products: data
+  });
 });
