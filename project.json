@@ -36,8 +36,9 @@
   },
   "publishOptions": {
     "include": [
-      "wwwroot",
-      "Views"
+      "Views",
+      "web.config",
+      "wwwroot"
     ],
     "exclude": [
       "node_modules",
@@ -47,7 +48,7 @@
       "**.vspscc"
     ],
     "mappings": {
-      ".": "./wwwroot"
+      ".": "wwwroot"
     }
   },
   "scripts": {
