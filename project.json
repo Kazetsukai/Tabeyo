@@ -27,13 +27,6 @@
   "frameworks": {
     "dnx451": {}
   },
-  "compile": {
-    "exclude": [
-      "wwwroot",
-      "node_modules",
-      "bower_components"
-    ]
-  },
   "publishOptions": {
     "include": [
       "wwwroot",
