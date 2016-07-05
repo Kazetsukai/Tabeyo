@@ -74,6 +74,7 @@ namespace Tabeyo
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseWebRoot(Path.Combine(Directory.GetCurrentDirectory(), "content"))
                 .UseStartup<Startup>()
                 .Build();
 
