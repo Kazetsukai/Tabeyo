@@ -19,7 +19,7 @@ var gsass = require('gulp-sass');
 
 var babelify = require('babelify');
 
-var webroot = "./wwwroot/";
+var webroot = "./content/";
 
 var paths = {
   js: webroot + "js/bundle/**/*.js",
