@@ -1,5 +1,5 @@
 
-using Microsoft.AspNet.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Tabeyo.Models;
 using Tabeyo.Services;
 using Tabeyo.ViewModels;
