@@ -75,6 +75,7 @@ namespace Tabeyo
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseWebRoot(Path.Combine(Directory.GetCurrentDirectory(), "content"))
+                .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
 
