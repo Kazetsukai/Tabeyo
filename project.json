@@ -39,13 +39,10 @@
   "publishOptions": {
     "include": [
       "Views",
-      "wwwroot",
+      "content",
       "appsettings.json",
       "web.config"
     ],
-    "mappings": {
-      ".": "wwwroot"
-    }
   },
   "scripts": {
     "prepublish": [
