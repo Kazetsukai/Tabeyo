@@ -6,7 +6,7 @@
     background-color: $lightColour;
     border-radius: 3px;
 
-    @include shadowSmall(grey); 
+    @include shadowSmall(gray); 
 }
 
 .product-box__image {
@@ -29,4 +29,5 @@
 
     border: 1px solid darken($lightColour, 10%);
     border-radius: 3px;
+
 }

@@ -16,13 +16,13 @@ export default class ProductBox extends React.Component {
             <img className="product-box__image" src={ prod.imageUrl }/>
           </div>
           <div className="product-box__name">{ prod.name }</div>
-          <a className="product-box__buy-button"
+          <button className="product-box__buy-button"
              href={"https://tabeyo.foxycart.com/cart" +
                    "?name=" + prod.name +
                    "&price=" + (prod.priceCents / 100) +
                    "&image=" + prod.imageUrl }>
             {"Buy - $" + (prod.priceCents / 100.0) }
-          </a>
+          </button>
         </div>
       </div>
     );
