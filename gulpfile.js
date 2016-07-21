@@ -19,7 +19,7 @@ var gsass = require('gulp-sass');
 
 var babelify = require('babelify');
 
-var webroot = "./wwwroot/";
+var webroot = "./content/";
 
 var paths = {
   js: webroot + "js/bundle/**/*.js",
@@ -27,6 +27,7 @@ var paths = {
   minJs: webroot + "js/**/*.min.js",
   scss: webroot + "css/**/*.scss",
   appScss: webroot + "app/**/*.scss",
+  libCss: webroot + "css/lib/**/*.css",
   minCss: webroot + "css/**/*.min.css",
   concatJsDest: webroot + "js/site.min.js",
   concatCssDest: webroot + "css/site.min.css"
@@ -69,7 +70,7 @@ gulp.task("min:js", function () {
 });
 
 gulp.task("min:css", function () {
-  return gulp.src([paths.scss, paths.appScss, "!" + paths.minCss])
+  return gulp.src([paths.scss, paths.appScss, paths.libCss, "!" + paths.minCss])
     .pipe(gsass())
     .pipe(concat(paths.concatCssDest))
     .pipe(cssmin())
@@ -78,7 +79,7 @@ gulp.task("min:css", function () {
 
 gulp.task("min", ["min:js", "min:css"]);
 
-gulp.task('watch-dnx', shell.task(['dnx-watch web']));
+gulp.task('watch-dotnet', shell.task(['dotnet watch web']));
 gulp.task('watch-min', function() {
   gulp.watch(paths.js, {cwd: webroot }, ['min:js']);
   gulp.watch(paths.appJs, {cwd: webroot }, ['min:js']);
