@@ -3,7 +3,7 @@ import * as React from 'react';
 import ProductListContainer from "../../containers/ProductListContainer";
 import MainHeader from "../../components/MainHeader/MainHeader";
 
-export default class NavBar extends React.Component {
+export default class Page extends React.Component {
   
   constructor(props) {
     super(props);
@@ -15,7 +15,7 @@ export default class NavBar extends React.Component {
       <div>
         <MainHeader />
         <div className="container">
-            <ProductListContainer />
+          {this.props.children}
         </div>
       </div>
     );

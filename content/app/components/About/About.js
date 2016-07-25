@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default class Hako extends React.Component {
+export default class AboutPage extends React.Component {
   
   constructor(props) {
     super(props);
@@ -9,8 +9,8 @@ export default class Hako extends React.Component {
   render() {
     
     return (
-      <div className="hako">
-        {this.props.children}
+      <div>
+        This is about us.
       </div>
     );
   }

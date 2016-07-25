@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import ProductBox from "../ProductBox/ProductBox";
-import Hako from "../Hako/Hako"
 
 export default class ProductList extends React.Component {
   

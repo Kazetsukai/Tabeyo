@@ -14,6 +14,7 @@ export default class MainHeader extends React.Component {
         <div className="container">
             <img className="main-header__logo" src="/img/logo.png" />
             <NavBar />
+            <img className="main-header__cart" src="/img/cart.png" />
         </div>
       </header>
     );
