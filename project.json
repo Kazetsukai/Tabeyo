@@ -46,7 +46,7 @@
       "content",
       "appsettings.json",
       "web.config"
-    ],
+    ]
   },
   "scripts": {
     "prepublish": [
