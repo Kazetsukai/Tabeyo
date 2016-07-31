@@ -1,5 +1,6 @@
 import * as React from 'react';
 import NavBar from "../../components/NavBar/NavBar";
+import Cart from "../../components/Cart/Cart";
 
 export default class MainHeader extends React.Component {
   
@@ -14,7 +15,7 @@ export default class MainHeader extends React.Component {
         <div className="container">
             <img className="main-header__logo" src="/img/logo.png" />
             <NavBar />
-            <img className="main-header__cart" src="/img/cart.png" />
+            <Cart />
         </div>
       </header>
     );
