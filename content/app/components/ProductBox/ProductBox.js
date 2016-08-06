@@ -21,7 +21,7 @@ export default class ProductBox extends React.Component {
                    "?name=" + prod.name +
                    "&price=" + (prod.priceCents / 100) +
                    "&image=" + prod.imageUrl }>
-            {"Buy - $" + (prod.priceCents / 100.0) }
+            {"Buy - $" + (prod.priceCents / 100.0).toFixed(2) }
           </a>
         </div>
       </div>
