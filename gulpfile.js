@@ -33,11 +33,6 @@ var paths = {
   concatJsDest: webroot + "js/site.min.js",
   concatCssDest: webroot + "css/site.min.css"
 };
-  
-function isForDevelopment() {
-    var env = process.env.ASPNET_ENV || "Development";
-    return env === "Development";
-}
 
 gulp.task("clean:js", function (cb) {
   rimraf(paths.concatJsDest, cb);
@@ -56,7 +51,6 @@ gulp.task("min:js", function () {
   bundledStream
     .pipe(source(paths.concatJsDest))
     .pipe(buffer())
-    .pipe(gulpif(!isForDevelopment(), uglify()))
     .on('error', gutil.log)
     .pipe(gulp.dest("."));
   
