@@ -79,7 +79,7 @@ gulp.task("min:css", function () {
 
 gulp.task("min", ["min:js", "min:css"]);
 
-gulp.task('watch-dotnet', shell.task(['dotnet watch web']));
+gulp.task('watch-dotnet', shell.task(['dotnet watch run']));
 gulp.task('watch-min', function() {
   gulp.watch(paths.js, {cwd: webroot }, ['min:js']);
   gulp.watch(paths.appJs, {cwd: webroot }, ['min:js']);

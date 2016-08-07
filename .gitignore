@@ -74,3 +74,5 @@ $RECYCLE.BIN/
 *.lnk
 project.lock.json
 content/js/site.min.js
+content/css/site.min.css
+project.lock.json

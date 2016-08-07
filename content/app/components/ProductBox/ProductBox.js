@@ -13,7 +13,9 @@ export default class ProductBox extends React.Component {
       <div className="product-box">
         <div>
           <div>
-            <img className="product-box__image" src={ prod.imageUrl }/>
+            <a className="product-box__image-link" href={"product/" + prod.id }>
+              <img className="product-box__image-link__image" src={ prod.imageUrl }/>
+            </a>
           </div>
           <div className="product-box__name">{ prod.name }</div>
           <a className="product-box__buy-button button"
@@ -21,7 +23,7 @@ export default class ProductBox extends React.Component {
                    "?name=" + prod.name +
                    "&price=" + (prod.priceCents / 100) +
                    "&image=" + prod.imageUrl }>
-            {"Buy - $" + (prod.priceCents / 100.0) }
+            {"Buy - $" + (prod.priceCents / 100.0).toFixed(2) }
           </a>
         </div>
       </div>

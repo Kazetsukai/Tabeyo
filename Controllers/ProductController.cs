@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Tabeyo.ViewModels;
 using Tabeyo.Services;
+using System.Threading.Tasks;
 
 namespace Tabeyo.Controllers
 {
@@ -15,9 +16,9 @@ namespace Tabeyo.Controllers
             _productService = productService;
         }
         
-        public IEnumerable<Product> Index()
+        public async Task<IEnumerable<Product>> Index()
         {
-            return _productService.GetProducts().Select(p => p.ToVM());
+            return (await _productService.GetAll()).Select(p => p.ToVM());
         }
         
     }

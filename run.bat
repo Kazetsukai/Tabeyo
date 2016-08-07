@@ -1,2 +1,2 @@
-start gulp watch-dnx
+start gulp watch-dotnet
 start gulp watch-min
