@@ -7,7 +7,7 @@ import ProductListContainer from './containers/ProductListContainer'
 import ProductPage from './components/ProductPage/ProductPage'
 
 export default (
-  <Route path="/construction/" component={Page}>
+  <Route path="/construction" component={Page}>
     <IndexRoute component={ProductListContainer} />
     <Route path="product/:id" component={ProductPage} />
     <Route path="about" component={About} />

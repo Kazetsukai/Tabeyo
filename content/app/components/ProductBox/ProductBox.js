@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router';
 
 export default class ProductBox extends React.Component {
   
@@ -13,9 +14,9 @@ export default class ProductBox extends React.Component {
       <div className="product-box">
         <div>
           <div>
-            <a className="product-box__image-link" href={"product/" + prod.id }>
+            <Link className="product-box__image-link"  to={"/construction/product/" + prod.id}>
               <img className="product-box__image-link__image" src={ prod.imageUrl }/>
-            </a>
+            </Link>
           </div>
           <div className="product-box__name">{ prod.name }</div>
           <a className="product-box__buy-button button"
