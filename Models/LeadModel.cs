@@ -15,6 +15,7 @@ namespace Tabeyo.Models
         
         public static LeadModel FromVM(Lead model)
         {
+            
             return new LeadModel() { Source = model.Source, Email = model.Email };
         }
     }

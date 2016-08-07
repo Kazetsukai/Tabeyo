@@ -1,4 +1,5 @@
 
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Tabeyo.Models;
 using Tabeyo.Services;
@@ -15,9 +16,9 @@ namespace Tabeyo.Controllers
             _leadService = leadService;
         }
 
-        public IActionResult Subscribe([FromBody] Lead lead)
+        public async Task<IActionResult> Subscribe([FromBody] Lead lead)
         {
-            _leadService.Add(LeadModel.FromVM(lead));
+            await _leadService.Add(LeadModel.FromVM(lead));
             
             return new JsonResult(new { success = true });
         }
