@@ -16,7 +16,6 @@ var globby = require('globby');
 var through = require('through2');
 var gutil = require('gulp-util');
 var gsass = require('gulp-sass');
-var gulpif = require('gulp-if');
 
 var babelify = require('babelify');
 
