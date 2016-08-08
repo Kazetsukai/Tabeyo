@@ -89,7 +89,7 @@ render(
     document.getElementById('content')
   );
   
-get("/Product", null, data => {
+get("/api/Products", null, data => {
   store.dispatch({
       type: RETRIEVE_PRODUCTS,
       products: data

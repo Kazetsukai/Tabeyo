@@ -66,10 +66,6 @@ namespace Tabeyo
                     name: "reactapp",
                     template: "construction/{*url}",
                     defaults: new { controller = "Construction", action = "Index" } );
-
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
 

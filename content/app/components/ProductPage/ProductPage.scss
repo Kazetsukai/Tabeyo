@@ -1,0 +1,12 @@
+@import '../../../css/_constants';
+
+.product-page__product-description { 
+    float: left;
+    padding: 19px;
+    background-color: $lightColour;
+    border-radius: 3px;
+
+    width: 100%;
+
+    @include shadowSmall(gray); 
+}

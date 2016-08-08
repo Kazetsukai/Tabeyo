@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.Storage.Table;
 
@@ -17,14 +18,28 @@ namespace Tabeyo.Services
             _table.CreateIfNotExistsAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAll() 
+        public async Task<IEnumerable<T>> GetAll()
+        {
+            return await GetQueryResults(new TableQuery<T>());
+        }
+
+        public async Task<T> GetSingle(string partitionKey, string rowKey)
+        {
+            var results = await GetQueryResults(new TableQuery<T>()
+                .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, partitionKey))
+                .Where(TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, rowKey)));
+
+            return results.Single();
+        }
+
+        public async Task<IEnumerable<T>> GetQueryResults(TableQuery<T> query) 
         {
             TableContinuationToken tableContinuationToken = null;
             var results = new List<T>();
 
             do 
             {
-                var queryResponse = await _table.ExecuteQuerySegmentedAsync<T>(new TableQuery<T>(), tableContinuationToken);
+                var queryResponse = await _table.ExecuteQuerySegmentedAsync<T>(query, tableContinuationToken);
                 tableContinuationToken = queryResponse.ContinuationToken;
                 results.AddRange(queryResponse.Results);
             }

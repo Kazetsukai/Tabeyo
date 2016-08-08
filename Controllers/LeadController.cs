@@ -7,6 +7,7 @@ using Tabeyo.ViewModels;
 
 namespace Tabeyo.Controllers
 {
+    [Route("api/Lead")]
     public class LeadController : Controller
     {
         private LeadService _leadService;
@@ -16,6 +17,7 @@ namespace Tabeyo.Controllers
             _leadService = leadService;
         }
 
+        [HttpPost("Subscribe")]
         public async Task<IActionResult> Subscribe([FromBody] Lead lead)
         {
             await _leadService.Add(LeadModel.FromVM(lead));

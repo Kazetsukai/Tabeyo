@@ -51,7 +51,7 @@ ready(function() {
         }
         
         post(
-            "/Lead/Subscribe",
+            "/api/Lead/Subscribe",
             JSON.stringify({ Email: address, Source: "Survey" }),
             function(data) { 
                 if (data.success) {
