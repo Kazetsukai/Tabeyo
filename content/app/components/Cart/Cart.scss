@@ -2,19 +2,23 @@
 
 .cart__icon {
     width: 90px;
-    height: 80px;
+    height: 80px;    
+    
+    margin: -10px;
+    margin-left: -20px;
 }
 
 .cart__count {
     background: #fec;
-    border-radius: 5px;
-    padding: 0px 4px;
-    font-weight: bold;
-    color: #682900;
-    text-shadow: 1px 1px 1px orange;    
+    border-radius: 100px;
+    border: 1px solid black;
+    padding: 0px;
+    text-shadow: 1px 1px 1px orange;
     position: absolute;
     width: 34px;
-    left: 29px;
+    left: 23px;
+    font-weight: bold;
+    color: #682900;
     text-align: center;
     top: 30px;
 }
@@ -23,4 +27,8 @@
     float: right;
     margin-top: 25px;
     position: relative;
+
+    background: #fec;
+    border-radius: 100px;
+    padding: 10px;
 }

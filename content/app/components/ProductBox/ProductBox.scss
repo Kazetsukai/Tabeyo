@@ -11,7 +11,10 @@
 
 .product-box__image-link__image {
     height: 200px;
-    object-fit: cover;
+    width: 100%;
+
+    background-size: cover;
+    background-position: center center;
 }
 
 .product-box__name {

@@ -15,10 +15,10 @@ export default class ProductPage extends React.Component {
 
     return (
       <div>
-        <img className="product-page__product-image" src={prod.imageUrl} />
-        <div className="product-page__product-description">
+        <div className="product-page">
+          <img className="product-page__product-image" src={prod.imageUrl} />
           <h2>{prod.name}</h2>
-          <p>This is a product page. For product ID: {prod.id}</p>
+          <p classname="product-page__product-description">This is a product page. For product ID: {prod.id}</p>
         </div>
       </div>
     );

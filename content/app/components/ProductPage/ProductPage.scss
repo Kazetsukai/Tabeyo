@@ -1,12 +1,23 @@
 @import '../../../css/_constants';
 
-.product-page__product-description { 
+.product-page { 
     float: left;
     padding: 19px;
     background-color: $lightColour;
     border-radius: 3px;
+    box-sizing: border-box;
 
     width: 100%;
 
     @include shadowSmall(gray); 
+}
+
+.product-page__product-image {
+    float: right;
+    margin-bottom: 30px;
+    max-width: 100%;
+}
+
+.product-page__product-description {
+    clear: right; 
 }

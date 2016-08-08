@@ -15,7 +15,7 @@ export default class ProductBox extends React.Component {
         <div>
           <div>
             <Link className="product-box__image-link"  to={"/construction/product/" + prod.id}>
-              <img className="product-box__image-link__image" src={ prod.imageUrl }/>
+              <div className="product-box__image-link__image" style={{ backgroundImage: "url(" + prod.imageUrl + ")" }}/>
             </Link>
           </div>
           <div className="product-box__name">{ prod.name }</div>
