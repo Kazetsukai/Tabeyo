@@ -3,7 +3,7 @@ import ProductList from '../components/ProductList/ProductList';
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products
+    products: state.products.slice(0, 20)
   }
 }
 

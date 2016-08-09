@@ -4,7 +4,7 @@
     "isShellCommand": true,
     "tasks": [
         {
-            "taskName": "min",
+            "taskName": "webpackdev",
             "isBuildCommand": true,
             "showOutput": "always"
         }

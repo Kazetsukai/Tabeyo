@@ -10,7 +10,7 @@ var gulp = require("gulp"),
   gsass = require("gulp-sass"),
   gutil = require("gulp-util");
     
-
+var path = require("path");
 var webpack = require("webpack");
 var webpackDevServer = require("webpack-dev-server");
 
@@ -31,6 +31,41 @@ var paths = {
 
 };
 
+
+
+var webpackConfig = {
+  entry: "./content/app/app.js",
+  output: {
+    path: path.resolve("./content/js"),
+    filename: "site.min.js"
+  },
+  module: {
+    loaders: [
+      { test: /\.js$/, loader: "uglify!babel" }
+    ]
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+        }
+    })
+  ],
+};
+
+var webpackDevConfig = {
+  entry: "./content/app/app.js",
+  output: {
+    path: path.resolve("./content/js"),
+    filename: "site.min.js"
+  },
+  module: {
+    loaders: [
+      { test: /\.js$/, loader: "babel" }
+    ]
+  },
+}
+
 gulp.task("clean:js", function (cb) {
   rimraf(paths.concatJsDest, cb);
 });
@@ -42,23 +77,39 @@ gulp.task("clean:css", function (cb) {
 gulp.task("clean", ["clean:js", "clean:css"]);
 
 gulp.task("webpack", function(callback) {
-    webpack({
-      entry: "./content/app/app.js",
-      output: {
-        path: paths.jsDestination,
-        filename: "site.min.js"
-      },
-      module: {
-        loaders: [
-          { test: /\.js$/, loader: "uglify!jsx!babel" }
-        ]
-      }
-    }, function(err, stats) {
+    webpack(webpackConfig, function(err, stats) {
         if(err) throw new gutil.PluginError("webpack", err);
         gutil.log("[webpack]", stats.toString({
             // output options
         }));
         callback();
+    });
+});
+
+gulp.task("webpackdev", function(callback) {
+  var compiler = webpack(webpackdevConfig);
+  new webpackDevServer(compiler, {
+        proxy: {
+          '/construction*': {
+            target: 'http://localhost:5000',
+            secure: false
+          },
+          '/api*': {
+            target: 'http://localhost:5000',
+            secure: false
+          }
+        },
+        contentBase: "./content",
+        publicPath: "http://localhost:8080/js/",
+        filename: "site.min.js"
+    }).listen(8080, "localhost", function(err) {
+        if(err) throw new gutil.PluginError("webpack-dev-server", err);
+        // Server listening
+        gutil.log(webpackConfig.output.path);
+        gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
+
+        // keep the server alive or continue?
+        // callback();
     });
 });
 

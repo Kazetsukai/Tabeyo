@@ -12,7 +12,7 @@ export default class ProductList extends React.Component {
     var products = [];
     if (this.props.products !== undefined) {
       this.props.products.forEach(function(product) {
-        products.push(<ProductBox product={product} key={product.name}/>)
+        products.push(<ProductBox product={product} key={product.id}/>)
       });
     }
     
