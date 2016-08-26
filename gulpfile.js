@@ -87,7 +87,7 @@ gulp.task("webpack", function(callback) {
 });
 
 gulp.task("webpackdev", function(callback) {
-  var compiler = webpack(webpackdevConfig);
+  var compiler = webpack(webpackDevConfig);
   new webpackDevServer(compiler, {
         proxy: {
           '/construction*': {
