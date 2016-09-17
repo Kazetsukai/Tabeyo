@@ -125,3 +125,5 @@ gulp.task("min:css", function () {
 gulp.task("min", ["webpack", "min:css"]);
 
 gulp.task('watch-dotnet', shell.task(['dotnet watch run']));
+
+gulp.task('rundev', ["watch-dotnet", "webpackdev"])
