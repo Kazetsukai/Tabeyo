@@ -5,7 +5,6 @@ var gulp = require("gulp"),
   rimraf = require("rimraf"),
   concat = require("gulp-concat"),
   cssmin = require("gulp-cssmin"),
-  uglify = require("gulp-uglify"),
   shell = require("gulp-shell"),
   gsass = require("gulp-sass"),
   gutil = require("gulp-util");
@@ -90,11 +89,11 @@ gulp.task("webpackdev", function(callback) {
   var compiler = webpack(webpackDevConfig);
   new webpackDevServer(compiler, {
         proxy: {
-          '/construction*': {
+          '/construction/*': {
             target: 'http://localhost:5000',
             secure: false
           },
-          '/api*': {
+          '/api/*': {
             target: 'http://localhost:5000',
             secure: false
           }
