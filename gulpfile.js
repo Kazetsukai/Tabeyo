@@ -25,7 +25,7 @@ var paths = {
   minCss: webroot + "css/**/*.min.css",
   
   webpackEntryJs: webroot + "app/app.js",
-  jsDestination: webroot + "js/",
+  jsDestination: webroot + "js/site.min.js",
   concatCssDest: webroot + "css/site.min.css"
 
 };
@@ -66,7 +66,7 @@ var webpackDevConfig = {
 }
 
 gulp.task("clean:js", function (cb) {
-  rimraf(paths.concatJsDest, cb);
+  rimraf(paths.jsDestination, cb);
 });
 
 gulp.task("clean:css", function (cb) {
